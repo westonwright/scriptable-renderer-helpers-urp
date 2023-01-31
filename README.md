@@ -1,1 +1,1 @@
-# criptable-renderer-helpers-urp
+# scriptable-renderer-helpers-urp
