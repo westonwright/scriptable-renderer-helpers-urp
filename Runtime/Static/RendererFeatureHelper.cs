@@ -5,8 +5,13 @@ using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
 public static class RendererFeatureHelper
 {
-    public static bool CreateMaterial(Shader shader, ref Material material)
+    public static bool GetMaterial(Shader shader, ref Material material)
     {
+        if(material != null)
+        {
+            return true;
+        }
+
         if (shader == null)
         {
             Debug.LogError("Shader Invalid!");
@@ -14,8 +19,7 @@ public static class RendererFeatureHelper
         }
         else
         {
-            material = new Material(shader);
-            material.hideFlags = HideFlags.HideAndDontSave;
+            material = CoreUtils.CreateEngineMaterial(shader);
             return true;
         }
     }
